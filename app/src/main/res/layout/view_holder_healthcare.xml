@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_medium"
+    android:orientation="vertical">
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tv_healthCare_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1.3"
+        android:text="How Much Storage is Really Needed in A SmartPhone?"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/text_regular_3x" />
+
+    <ImageView
+        android:id="@+id/iv_healthCare_photo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:scaleType="center"
+        android:src="@drawable/food" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/pretty_button"
+            android:layout_width="65dp"
+            android:layout_height="30dp"
+            android:background="@drawable/border"
+            android:text="Pretty"
+            android:textColor="#4fc3f7" />
+
+        <TextView
+            android:id="@+id/tv_healthCare_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:text="jssharma"
+            android:textColor="@color/textColor" />
+
+        <TextView
+            android:id="@+id/iv_square_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:drawableLeft="@drawable/square"
+            android:drawablePadding="@dimen/margin_medium"
+            android:text="5302"
+            android:textColor="@color/textColor" />
+
+        <TextView
+            android:id="@+id/tv_comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:drawableLeft="@drawable/comment"
+            android:drawablePadding="@dimen/margin_medium"
+            android:text="229"
+            android:textColor="@color/textColor" />
+
+        <TextView
+            android:id="@+id/tv_like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:drawableLeft="@drawable/like"
+            android:drawablePadding="@dimen/margin_medium"
+            android:text="56"
+            android:textColor="@color/textColor" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:background="@color/textColor" />
+
+</LinearLayout>
