@@ -24,8 +24,9 @@ import kotlinx.android.synthetic.main.content_main.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import org.mmtextview.MMFontUtils
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private var healthCareAdapter: HealthCareAdapter? = null
 
@@ -46,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 
         swipeRefresh.setOnRefreshListener {
             HealthCareModel.getInstance().forceLoadHealthCare()
-            swipeRefresh.isRefreshing=false
         }
 
         rv_healthCareLists.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -81,27 +81,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        if (!EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().register(this)
-        }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        if (EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().unregister(this)
-
-        }
-    }
-
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onLoadedHealthCareLists(healthCareLists: SuccessGetHealthCareEvent.HealthCareEvent) {
         healthCareAdapter!!.appendNewData(healthCareLists.loadHealthCareLists as MutableList<HealthCareVO>)
         swipeRefresh.isRefreshing = false
-        vpEmpty.visibility= GONE
+        vpEmpty.visibility = GONE
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -110,6 +95,7 @@ class MainActivity : AppCompatActivity() {
         swipeRefresh.isRefreshing = false
         if (healthCareAdapter!!.itemCount <= 0) {
             vpEmpty.visibility = VISIBLE
+            
         } else {
             vpEmpty.visibility = GONE
         }
